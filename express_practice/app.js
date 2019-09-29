@@ -5,14 +5,14 @@ const app = express();
 
 // define your routes
 app.get('/', function(request, response){
-    response.send('Hello!');
+    response.send('Hello and welcome to the Express challenge!');
     console.log('Someone has made a request to /');
     console.log(request.params);
 });
 
 // params
-app.get('/r/:subredditName', function(request, response){
-    let subreddit = request.params.subredditName;
+app.get('/speak/:animalName', function(request, response){
+    let animal = request.params.animalName;
     response.send(`Welcome to the ${subreddit} sub reddit!`);
     console.log(request.params);
 });
