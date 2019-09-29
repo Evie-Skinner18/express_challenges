@@ -19,6 +19,12 @@ app.get('/speak/:animalName', function(request, response){
     console.log(request.params);
 });
 
+app.get('/repeat/:word/:number', function(request, response){
+    let word = request.params.word;
+    let number = request.params.number;
+    response.send(repeatWord(word, number)); 
+});
+
 // put the wildcard route at the bottom as a catch all
 app.get('*', function(request, response){
     response.send('You are a STAR');
@@ -42,7 +48,16 @@ function chooseAnimalNoise(animal){
     }
 }
 
-// decide how many hellis to return
+// decide how many hellos to return
+function repeatWord(word, numberOfTimes) {
+    let wordRepeated = '';
+    numberOfTimes = parseInt(numberOfTimes);
+
+    for (let i = 0; i < numberOfTimes; i++) {
+        wordRepeated = `${wordRepeated} ${word}`;
+    }
+    return wordRepeated;
+}
 
 
 //start the node server
