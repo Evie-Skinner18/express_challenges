@@ -27,8 +27,8 @@ app.get('/repeat/:word/:number', function(request, response){
 
 // put the wildcard route at the bottom as a catch all
 app.get('*', function(request, response){
-    response.send('You are a STAR');
-    console.log('Yeah you are');
+    response.send('Sorry, I can\'t find that page... What are you doing with your life?');
+    console.log('Yeah you are nice though cutie pie');
 });
 
 // decide which animal noise to return
