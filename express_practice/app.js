@@ -13,7 +13,12 @@ app.get('/', function(request, response){
 // params
 app.get('/speak/:animalName', function(request, response){
     let animal = request.params.animalName;
-    response.send(`Welcome to the ${subreddit} sub reddit!`);
+    let noise = chooseAnimalNoise(animal);
+
+    
+
+    response.send(`Welcome to the ${animal} speak page!`);
+    response.send(`The ${animal} goes ${noise}`);
     console.log(request.params);
 });
 
@@ -23,7 +28,22 @@ app.get('*', function(request, response){
     console.log('Yeah you are');
 });
 
-
+// decide which animal noise to return
+function chooseAnimalNoise(animal){
+    switch (animal) {
+        case 'pig': 
+            return 'Oink!';
+            break;
+        case 'cow':
+            return 'MOO';
+            break;
+        case 'dog':
+            return 'Woof!';
+            break;
+        default: 'Default noise';
+            break;
+    }
+}
 
 
 //start the node server
