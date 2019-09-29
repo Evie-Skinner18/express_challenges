@@ -15,9 +15,6 @@ app.get('/speak/:animalName', function(request, response){
     let animal = request.params.animalName;
     let noise = chooseAnimalNoise(animal);
 
-    
-
-    response.send(`Welcome to the ${animal} speak page!`);
     response.send(`The ${animal} goes ${noise}`);
     console.log(request.params);
 });
@@ -32,18 +29,20 @@ app.get('*', function(request, response){
 function chooseAnimalNoise(animal){
     switch (animal) {
         case 'pig': 
-            return 'Oink!';
+            return 'oink!';
             break;
         case 'cow':
             return 'MOO';
             break;
         case 'dog':
-            return 'Woof!';
+            return 'woof!';
             break;
-        default: 'Default noise';
+        default: 'default noise';
             break;
     }
 }
+
+// decide how many hellis to return
 
 
 //start the node server
