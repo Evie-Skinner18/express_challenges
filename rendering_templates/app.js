@@ -2,9 +2,16 @@ const express = require('express');
 const app = express();
 
 
-// routes
+// root route
+// Express automatically looks for EJS files in a dir called views
 app.get('/', function(request, response){
     response.render('home.ejs');
+});
+
+// fallinlovewith/cheesepuppy
+app.get('/fallinlovewith/:thing', function(request, response){
+    let thing = request.params.thing;
+    response.render('love.ejs');
 });
 
 
