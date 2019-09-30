@@ -4,7 +4,7 @@ const app = express();
 
 // routes
 app.get('/', function(request, response){
-    response.render('index.ejs');
+    response.render('home.ejs');
 });
 
 
