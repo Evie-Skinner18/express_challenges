@@ -11,7 +11,9 @@ app.get('/', function(request, response){
 // fallinlovewith/cheesepuppy
 app.get('/fallinlovewith/:thing', function(request, response){
     let thing = request.params.thing;
-    response.render('love.ejs');
+    // pass in an object to render so it knows to pass the value stored in thing to thingVar which is the var
+    // we have set up to be rendered in love.ejs
+    response.render('love.ejs', {thingVar: thing});
 });
 
 
