@@ -16,6 +16,17 @@ app.get('/fallinlovewith/:thing', function(request, response){
     response.render('love.ejs', {thingVar: thing});
 });
 
+app.get('/posts', function(request, response){
+  // posts is an array of objects. We will pass this data to the view and in the view we'll loop through it
+    let posts = [
+      {title: "Cheese Post", author: "Barry Cheeseman"},
+      {title: "Beer Post", author: "Lionel Van Der Kriek"},
+      {title: "Drums Post", author: "Youssef Dayes"}
+    ];
+// pass the posts array as a parameter to the render function
+    response.render('posts.ejs', {posts: posts});
+});
+
 
 
 
