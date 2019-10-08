@@ -1,11 +1,16 @@
 const express = require('express');
 const app = express();
 
+// need to tell express explicitly to use /public dir for all the styles etc
+app.use(express.static('public'));
+// tell express that we're using .ejs files as the views so you don't have to include the .ejs extension later on
+app.set('view engine', 'ejs');
+
 
 // root route
 // Express automatically looks for EJS files in a dir called views
 app.get('/', function(request, response){
-    response.render('home.ejs');
+    response.render('home');
 });
 
 // fallinlovewith/cheesepuppy
@@ -13,7 +18,7 @@ app.get('/fallinlovewith/:thing', function(request, response){
     let thing = request.params.thing;
     // pass in an object to render so it knows to pass the value stored in thing to thingVar which is the var
     // we have set up to be rendered in love.ejs
-    response.render('love.ejs', {thingVar: thing});
+    response.render('love', {thingVar: thing});
 });
 
 app.get('/posts', function(request, response){
@@ -24,7 +29,7 @@ app.get('/posts', function(request, response){
       {title: "Drums Post", author: "Youssef Dayes"}
     ];
 // pass the posts array as a parameter to the render function
-    response.render('posts.ejs', {posts: posts});
+    response.render('posts', {posts: posts});
 });
 
 
