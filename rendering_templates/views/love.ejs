@@ -1,0 +1,24 @@
+<!-- INCLUDE the partial view for the header -->
+<% include partials/header %>
+
+<!-- embed JS in the HTML with ice cream cones like with Rails -->
+<h1>You've fallen in love with <%= thingVar %> </h1>
+
+<% if(thingVar.toLowerCase() === 'rusty'){ %>
+    <p>GOOD CHOICE! RUSTY IS THE DON </p>
+<% } else { %>
+        <p>You mean you don't love Rusty..?</p>
+<%    } %>
+
+
+<p>P.S. This is the love.ejs file!</p>
+
+<!-- 
+    three different types of EJS ice cream cones:
+    1. <%=  %>  the equals sign means whatever the embedded var equals is going to be rendered to the HTML. E.g 5+5
+    2. <%  %>  for some logic, no equals sign just runs the code. Put the cones on each line of code
+    3. <%- %>
+-->
+
+<!-- INCLUDE the partial view for the footer -->
+<% include partials/footer %>
