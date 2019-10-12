@@ -35,7 +35,7 @@ app.post('/addfriend', function(request,response){
   // push the new friend into the friends array defined up above
   friends.push(newFriend);
   // view all the friends inc new one
-  response.render('friends', {friends: friends});
+  response.redirect('friends');
 });
 
 
