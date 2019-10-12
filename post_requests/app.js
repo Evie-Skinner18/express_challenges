@@ -12,7 +12,10 @@ app.get('/', function(request, response){
 });
 
 app.get('/friends', function(request, response){
-  response.render('friends');
+  let friends = ['Dibby', 'Adam', 'Maja', 'Patrick', 'Foofoo', 'Bikesh'];
+  // the object we send specifies a property, friends, that is populated by an array var friends that
+  // we've just made
+  response.render('friends', {friends: friends});
 });
 
 
