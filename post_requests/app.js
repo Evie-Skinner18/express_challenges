@@ -18,6 +18,10 @@ app.get('/friends', function(request, response){
   response.render('friends', {friends: friends});
 });
 
+app.post('/addfriend', function(request,response){
+  response.send('You have reached the POST route!');
+});
+
 
 //start the node server
 var port = process.env.PORT || 3000;

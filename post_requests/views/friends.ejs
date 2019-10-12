@@ -3,3 +3,10 @@
 <% friends.forEach(function(friend){ %>
        <li> <%= friend %> </li>
 <%  }); %>
+
+
+<!-- submit this form to send a POST request -->
+<form action="/addfriend" method="POST">
+    <input type="text">
+    <button type="submit">Click to add a new friend!</button>
+</form>
