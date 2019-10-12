@@ -19,6 +19,9 @@ app.get('/friends', function(request, response){
 });
 
 app.post('/addfriend', function(request,response){
+  // print everything in the body of the request. BodyPArser package tells Express to turn the body
+  // of the request into a JS bject that you can see
+  console.log(request.body);
   response.send('You have reached the POST route!');
 });
 
