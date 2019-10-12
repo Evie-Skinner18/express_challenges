@@ -36,28 +36,6 @@ app.get('/posts', function(request, response){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //start the node server
 var port = process.env.PORT || 3000;
 app.listen(port, function () {
