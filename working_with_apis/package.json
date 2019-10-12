@@ -1,0 +1,11 @@
+{
+  "name": "working_with_apis",
+  "version": "1.0.0",
+  "description": "An exercise to explore how I can call extrernal APIs using Node",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Evie-Skinner18",
+  "license": "ISC"
+}
