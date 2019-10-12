@@ -11,6 +11,9 @@ app.get('/', function(request, response){
   response.render('home');
 });
 
+app.get('/friends', function(request, response){
+  response.render('friends');
+});
 
 
 //start the node server
