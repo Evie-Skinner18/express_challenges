@@ -1,16 +1,19 @@
+// there's another version of request which uses promises but not sure what a promise is yet...
 const request = require('request');
 
 // make a simple GET request to the Punk API. To do anything with the info that comes back,
-// we need callback function
-request('https://api.punkapi.com/v2/beers/random', function(error, response, body){
-    eval(require('locus'))
+// we need callback function (or a promise!). 
+//Instead of writing the word function you can put an arrow after parameters
+request('https://api.punkapi.com/v2/beers/random', (error, response, body)=> {
+  // running locus here sets a breakpoint so you can look at the values of all the vars in ther terminal
+    // eval(require('locus'))
   // how are you going to handle the different types of response?
     if(!error && response.statusCode == 200){
       // REMEMBER: a JSON object is nOT an obejct: it's actually just a massive string!
       console.log(response.statusCode);
       // now we don't want the whole body of response just want to extract this beer's name.
       // JS comes with a method to turn the massive string response into a real JS object
-      let parsedResponseBody = JSON.parse(body);
+      const parsedResponseBody = JSON.parse(body);
       // Punk API response comes in an array of beer objects: first one is an object with general deets e.g
       // beer name and desc. Second one is ingredients etc.
       console.log
