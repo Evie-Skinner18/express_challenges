@@ -3,6 +3,7 @@ const request = require('request');
 // make a simple GET request to the Punk API. To do anything with the info that comes back,
 // we need callback function
 request('https://api.punkapi.com/v2/beers/random', function(error, response, body){
+    eval(require('locus'))
   // how are you going to handle the different types of response?
     if(!error && response.statusCode == 200){
       // REMEMBER: a JSON object is nOT an obejct: it's actually just a massive string!
