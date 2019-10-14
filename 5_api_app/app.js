@@ -21,7 +21,8 @@ app.get('/results', (req, res)=> {
         if(!error && response.statusCode == 200){
             const parsedBody = JSON.parse(body);
             // this needs to be res not response because it's the Express route res doing the actual responding
-            res.send(parsedBody[0]);
+            // res.send(parsedBody[0]);
+            res.render('results', {beerResults: parsedBody});
         }
         else if(error){
             console.log('There is an error:', error);
@@ -34,9 +35,6 @@ app.get('/results', (req, res)=> {
 
 // to make a search of all the beers by name use an endpoint like this:
 // https://api.punkapi.com/v2/beers?&beer_name=dog
-
-
-
 
 
 
