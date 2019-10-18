@@ -11,16 +11,21 @@ app.set('view engine', 'ejs');
 
 // root route
 app.get('/', (req, res)=> {
-    res.send('Hello!');
+    res.render('search');
 });
 
 // display the results of the beer search
 app.get('/results', (req, res)=> {
-    // call the Punk API using request
-    request('https://api.punkapi.com/v2/beers?&beer_name=dog', (error, response, body)=> {
+    // grab the user's search term from query string using the Express req
+    let usersSearchTerm = req.query.beerSearch.toLowerCase();
+    let url = `https://api.punkapi.com/v2/beers?&beer_name=${usersSearchTerm}`;
+    
+    // call the Punk API using user's search word embedded in the request
+    request(url, (error, response, body)=> {
         if(!error && response.statusCode == 200){
             const parsedBody = JSON.parse(body);
             // this needs to be res not response because it's the Express route res doing the actual responding
+
             res.render('results', {beerResults: parsedBody});
         }
         else if(error){
