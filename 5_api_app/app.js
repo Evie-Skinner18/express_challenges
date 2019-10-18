@@ -21,7 +21,6 @@ app.get('/results', (req, res)=> {
         if(!error && response.statusCode == 200){
             const parsedBody = JSON.parse(body);
             // this needs to be res not response because it's the Express route res doing the actual responding
-            // res.send(parsedBody[0]);
             res.render('results', {beerResults: parsedBody});
         }
         else if(error){
