@@ -2,5 +2,11 @@
 <!-- show each item that gets returned from Punk API in response to the search request -->
 <!-- Punk API returns an array of beer objects -->
 <% beerResults.forEach(function(beer){ %>
-    <li> <%= beer.name %> </li>
+    <li> <%= beer.name %>  - <%= beer.tagline %> </li>
 <% }); %>
+
+<footer>
+    <form action="/" method="GET">
+        <button type="submit">Take me back Home</button>
+    </form>    
+</footer>
