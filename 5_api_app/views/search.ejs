@@ -1,0 +1,13 @@
+<% include partials/header %>
+
+<h1>Beer Search</h1>
+<h2>Let's have fun! Search for a Brewdog beer here:</h2>
+
+<!-- we want the user's input to trigger the /results route -->
+<!-- we need a name in order to link this form with the /results route in app.js -->
+<form action="/results" method="GET">
+    <input type="text" placeholder="Enter a word" name="beerSearch">
+    <button type="submit">Click for Beer!</button>
+</form>
+
+<% include partials/footer %>

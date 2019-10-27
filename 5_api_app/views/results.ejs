@@ -1,0 +1,18 @@
+<% include partials/header %>
+
+<h1>Your Beers</h1>
+<!-- show each item that gets returned from Punk API in response to the search request -->
+<!-- Punk API returns an array of beer objects -->
+<% beerResults.forEach(function(beer){ %>
+    <li> 
+        <strong><%= beer.name %> </strong> - <%= beer.tagline %> 
+    </li>
+<% }); %>
+
+<footer>
+    <form action="/" method="GET">
+        <button type="submit">Take me back Home</button>
+    </form>    
+</footer>
+
+<% include partials/footer %>
