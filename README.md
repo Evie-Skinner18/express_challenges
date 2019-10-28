@@ -8,5 +8,7 @@
 - Express
 - HTML
 - CSS
-- Jest
+- Bootstrap
+- EJS
+- Request
 - Nodemon
