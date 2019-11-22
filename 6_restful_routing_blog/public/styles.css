@@ -1,0 +1,23 @@
+#app-body {
+    font-weight: 50;
+}
+
+.blog {
+    padding: 10px;
+    margin-top: 10px;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.blog-form {
+    width: 50%;
+    text-align: center;
+    margin-top: 2%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.footer-style {
+    padding: 20%;
+}
