@@ -1,0 +1,10 @@
+<h1>Welcome to my blog! You'll find all my posts here</h1>
+
+<% blogs.forEach(function(blog){  %>
+        <div>
+            <h2><%= blog.title %></h2>
+            <img src="<%= blog.image %>" alt="Image of <%= blog.title %> post">
+            <span><%= blog.dateCreated %></span>
+            <p><%= blog.body %></p>
+        </div>
+<% }); %>
