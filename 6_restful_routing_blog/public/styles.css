@@ -22,3 +22,12 @@
 .footer-style {
     padding: 20%;
 }
+
+i.icon {
+    font-size: 2em;
+}
+
+#navalicious {
+    background: #803408;
+    color: #f8e8b7;
+}
