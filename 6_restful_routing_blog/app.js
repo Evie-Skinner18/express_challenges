@@ -39,12 +39,12 @@ app.get('/blogs', (req, res)=> {
     });
 });
 
-// NEW show the form
+// NEW render the create form
 app.get('/blogs/new', (req, res)=> {
     res.render('new');
 });
 
-// POST to create new blog
+// CREATE new blog
 app.post('/blogs', (req, res)=> {
     // create a new blog from the data that comes in through the POST form in the body of the request
     Blog.create(req.body.blog, (err, newBlog)=>{
@@ -54,6 +54,18 @@ app.post('/blogs', (req, res)=> {
         else{
             res.redirect('/blogs');
         }    
+    });
+});
+
+// SHOW a blog post in more detail
+app.get('/blogs/:id', (req, res)=>{
+    Blog.findById(req.params.id, (err, foundBlog)=> {
+        if(err){
+            res.send('Can\'t find that blog post soz!');
+        }
+        else{
+            res.render('show', {blog: foundBlog});
+        }
     });
 });
 

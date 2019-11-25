@@ -1,5 +1,6 @@
 #app-body {
-    margin-top: 5%;
+    padding: 5%;
+    margin-top: 3%;
     font-weight: 50;
     background: #f8e8b7;
     color: #630d21;
@@ -11,6 +12,10 @@
     width: 80%;
     display: flex;
     flex-wrap: wrap;
+}
+
+.blog-card {
+    padding: 5%;
 }
 
 .blog-form {
@@ -50,4 +55,11 @@ i.icon {
 
 .porter-colour {
     background: #3e0000;
+}
+
+.blog-image {
+    width: 20%;
+    height: 30%;
+    display: flex;
+    flex-wrap: wrap;
 }
