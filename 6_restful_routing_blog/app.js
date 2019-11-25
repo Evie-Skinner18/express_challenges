@@ -42,7 +42,20 @@ app.get('/blogs', (req, res)=> {
 // NEW show the form
 app.get('/blogs/new', (req, res)=> {
     res.render('new');
-})
+});
+
+// POST to create new blog
+app.post('/blogs', (req, res)=> {
+    // create a new blog from the data that comes in through the POST form in the body of the request
+    Blog.create(req.body.blog, (err, newBlog)=>{
+        if(err){
+            res.render('new');
+        }
+        else{
+            res.redirect('/blogs');
+        }    
+    });
+});
 
 
 

@@ -1,6 +1,8 @@
 #app-body {
     margin-top: 5%;
     font-weight: 50;
+    background: #f8e8b7;
+    color: #630d21;
 }
 
 .blog {
@@ -27,7 +29,25 @@ i.icon {
     font-size: 2em;
 }
 
-#navalicious {
+.ui.button {
     background: #803408;
     color: #f8e8b7;
+}
+
+#navalicious {
+    background: #803408;
+    color: #f8e8b7; 
+}
+
+
+.kriek-colour {
+    background: #630d21;
+}
+
+.pale-ale-colour {
+    background: #fab120;
+}
+
+.porter-colour {
+    background: #3e0000;
 }
