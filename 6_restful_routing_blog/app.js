@@ -39,6 +39,11 @@ app.get('/blogs', (req, res)=> {
     });
 });
 
+// NEW show the form
+app.get('/blogs/new', (req, res)=> {
+    res.render('new');
+})
+
 
 
 
