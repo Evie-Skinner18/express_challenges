@@ -7,8 +7,8 @@
         <div class="blog-card">
             <h2><%= blog.title %></h2>
             <img src="<%= blog.image %>" alt="Image of <%= blog.title %> post" class="blog-image">
-            <span><%= blog.dateCreated %></span>
-            <p><%= blog.body %></p>
+            <span><%= blog.dateCreated.toDateString() %></span>
+            <p><%= blog.body.substring(0, 100) %>... </p>
             <a href="/blogs/<%= blog._id %>"><button class="ui button">More...</button></a> 
         </div>
 <% }); %>

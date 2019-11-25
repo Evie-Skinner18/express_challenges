@@ -61,7 +61,7 @@ app.post('/blogs', (req, res)=> {
 app.get('/blogs/:id', (req, res)=>{
     Blog.findById(req.params.id, (err, foundBlog)=> {
         if(err){
-            res.send('Can\'t find that blog post soz!');
+            res.redirect('/blogs');
         }
         else{
             res.render('show', {blog: foundBlog});
