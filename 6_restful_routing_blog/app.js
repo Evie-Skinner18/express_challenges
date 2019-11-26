@@ -11,8 +11,6 @@ mongoose.connect('mongodb://localhost:27017/blogApp', {useNewUrlParser: true, us
 // mongoose.connect('mongodb://localhost:27017/yelpCamp', {useNewUrlParser: true, useUnifiedTopology: true});
 
 
-// to-do: add another col/property to the blog schema. This will be a URL pointing to brewery's website
-// and another one saying where you can buy this beer
 const blogSchema = new mongoose.Schema({
     title: String,
     image: String,
@@ -74,6 +72,22 @@ app.get('/blogs/:id', (req, res)=>{
     });
 });
 
+// EDIT
+app.get('/blogs/:id/edit', (req, res)=> {
+    Blog.findById(req.params.id, (err, foundBlog)=>{
+        if(err){
+            res.redirect('/blogs');
+        }
+        else{
+            res.render('edit', {blog: foundBlog});
+        }
+    });
+});
+
+// UPDATE
+app.put('/blogs/:id', (req, res)=> {
+    res.send('PUT');
+});
 
 
 

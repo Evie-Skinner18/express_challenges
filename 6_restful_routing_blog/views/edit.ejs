@@ -1,0 +1,31 @@
+<% include partials/header %>
+<% include partials/navbar %>
+
+<div class="kriek-colour ui main text container segment">
+    <div class="ui huge header">Edit <%= blog.title %></div>
+    <form class="ui form" action="/blogs/<%= blog._id %>" method="PUT">
+        <div class="field">
+            <label>Title</label>
+            <input type="text" name="blog[title]" value="<%= blog.title %>">
+        </div>
+        <div class="field">
+            <label>Image</label>
+            <input type="text" name="blog[image]" value="<%= blog.image %>">
+        </div>
+        <div class="field">
+            <label>Blog Content</label>
+            <textarea name="blog[body]" cols="30" rows="10" required><%= blog.body %></textarea>
+        </div>
+        <div class="field">
+            <label>Brewery Website</label>
+            <input type="text" name="blog[breweryWebsite]" value="<%= blog.breweryWebsite %>">
+        </div>
+        <div class="field">
+            <label>Where to Buy this Beer</label>
+            <input type="text" name="blog[whereToBuy]" value="<%= blog.whereToBuy %>">
+        </div>
+        <button class="ui button">Update</button>
+    </form>
+</div>
+
+<% include partials/footer %>
