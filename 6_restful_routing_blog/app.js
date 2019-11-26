@@ -2,10 +2,12 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const methodOverride = require('method-override');
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(methodOverride('_method'));
 
 mongoose.connect('mongodb://localhost:27017/blogApp', {useNewUrlParser: true, useUnifiedTopology: true});
 // mongoose.connect('mongodb://localhost:27017/yelpCamp', {useNewUrlParser: true, useUnifiedTopology: true});
@@ -86,7 +88,14 @@ app.get('/blogs/:id/edit', (req, res)=> {
 
 // UPDATE
 app.put('/blogs/:id', (req, res)=> {
-    res.send('PUT');
+    Blog.findByIdAndUpdate(req.params.id, req.body.blog, (err, updatedBlog)=> {
+        if(err){
+            res.redirect('/blogs');
+        }
+        else{
+            res.redirect(`/blogs/${req.params.id}`);
+        }
+    });
 });
 
 
