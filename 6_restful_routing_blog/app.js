@@ -10,11 +10,16 @@ app.use(bodyParser.urlencoded({extended: true}));
 mongoose.connect('mongodb://localhost:27017/blogApp', {useNewUrlParser: true, useUnifiedTopology: true});
 // mongoose.connect('mongodb://localhost:27017/yelpCamp', {useNewUrlParser: true, useUnifiedTopology: true});
 
+
+// to-do: add another col/property to the blog schema. This will be a URL pointing to brewery's website
+// and another one saying where you can buy this beer
 const blogSchema = new mongoose.Schema({
     title: String,
     image: String,
     body: String,
-    dateCreated: {type: Date, default: Date.now}
+    dateCreated: {type: Date, default: Date.now},
+    breweryWebsite: {type: String, default: ''},
+    whereToBuy: {type: String, default: ''}
 });
 const Blog = mongoose.model('Blog', blogSchema);
 // Blog.create({

@@ -10,7 +10,11 @@
                 <span><%= blog.dateCreated.toDateString() %></span>
             </div>
             <div class="description">
-                <p><%= blog.body %></p>        
+                <p><%= blog.body %></p> 
+                <p>You can buy this beer at the following locations: <%= blog.whereToBuy %></p>
+                <a target="_blank" rel="noopener noreferrer" href="<%= blog.breweryWebsite %>">
+                    <button class="ui button">Visit the Brewery</button>
+                </a>        
             </div>
         </div>
     </div>
