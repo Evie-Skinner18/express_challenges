@@ -13,7 +13,10 @@
                 <p><%= blog.body %></p> 
                 <p>You can buy this beer at the following locations: <%= blog.whereToBuy %></p>
                 <a target="_blank" rel="noopener noreferrer" href="<%= blog.breweryWebsite %>">
+                <span>
                     <button class="ui button">Visit the Brewery</button>
+                    <a href="<%= blog._id %>/edit"><button class="ui button">Edit Post</button></a>
+                </span>
                 </a>        
             </div>
         </div>

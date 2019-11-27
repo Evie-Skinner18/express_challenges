@@ -88,7 +88,8 @@ app.get('/blogs/:id/edit', (req, res)=> {
 
 // UPDATE
 app.put('/blogs/:id', (req, res)=> {
-    Blog.findByIdAndUpdate(req.params.id, req.body.blog, (err, updatedBlog)=> {
+    // set useFindAndModify to false to get rid of mongoose deprecation warning
+    Blog.findByIdAndUpdate(req.params.id, req.body.blog, {useFindAndModify: false}, (err, updatedBlog)=> {
         if(err){
             res.redirect('/blogs');
         }
