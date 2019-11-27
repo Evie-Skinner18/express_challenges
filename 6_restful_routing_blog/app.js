@@ -86,6 +86,8 @@ app.get('/blogs/:id/edit', (req, res)=> {
     });
 });
 
+// final two routes use method-override npm pkg
+
 // UPDATE
 app.put('/blogs/:id', (req, res)=> {
     // set useFindAndModify to false to get rid of mongoose deprecation warning
@@ -95,6 +97,18 @@ app.put('/blogs/:id', (req, res)=> {
         }
         else{
             res.redirect(`/blogs/${req.params.id}`);
+        }
+    });
+});
+
+// DELETE
+app.delete('/blogs/:id', (req, res)=> {
+    Blog.findByIdAndRemove(req.params.id, (err, deletedBlog)=> {
+        if(err){
+            res.redirect('/blogs');
+        }
+        else{
+            res.render('destroy', {destroyedBlog: deletedBlog});
         }
     });
 });
