@@ -3,15 +3,15 @@ const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
+const sanitiser = require('express-sanitizer');
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
+app.use(sanitiser());
 
 mongoose.connect('mongodb://localhost:27017/blogApp', {useNewUrlParser: true, useUnifiedTopology: true});
-// mongoose.connect('mongodb://localhost:27017/yelpCamp', {useNewUrlParser: true, useUnifiedTopology: true});
-
 
 const blogSchema = new mongoose.Schema({
     title: String,
@@ -51,6 +51,9 @@ app.get('/blogs/new', (req, res)=> {
 
 // CREATE new blog
 app.post('/blogs', (req, res)=> {
+    // sanitise the body text of new blog and then replace old body with sanitised version   
+    let sanitisedBlogBody = req.sanitize(req.body.blog.body);
+    req.body.blog.body = sanitisedBlogBody;
     // create a new blog from the data that comes in through the POST form in the body of the request
     Blog.create(req.body.blog, (err, newBlog)=>{
         if(err){
@@ -90,6 +93,9 @@ app.get('/blogs/:id/edit', (req, res)=> {
 
 // UPDATE
 app.put('/blogs/:id', (req, res)=> {
+    // sanitise the body text of new blog and then replace old body with sanitised version   
+    let sanitisedBlogBody = req.sanitize(req.body.blog.body);
+    req.body.blog.body = sanitisedBlogBody;
     // set useFindAndModify to false to get rid of mongoose deprecation warning
     Blog.findByIdAndUpdate(req.params.id, req.body.blog, {useFindAndModify: false}, (err, updatedBlog)=> {
         if(err){
