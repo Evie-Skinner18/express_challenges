@@ -12,3 +12,9 @@
 - EJS
 - Request
 - Nodemon
+- Body Parser
+- Method Override
+- MongoDB
+- Mongoose
+- Semantic UI
+- RESTful API design

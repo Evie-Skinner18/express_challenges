@@ -1,0 +1,67 @@
+#app-body {
+    padding: 5%;
+    margin-top: 3%;
+    font-weight: 50;
+    background: #f8e8b7;
+    color: #630d21;
+}
+
+.blog {
+    padding: 10px;
+    margin-top: 10px;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.blog-card {
+    padding: 5%;
+}
+
+.blog-form {
+    width: 50%;
+    text-align: center;
+    margin-top: 2%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.footer-style {
+    padding: 20%;
+}
+
+i.icon {
+    font-size: 2em;
+}
+
+.ui.button {
+    background: #803408;
+    color: #f8e8b7;
+}
+
+#navalicious {
+    background: #803408;
+    color: #f8e8b7; 
+}
+
+
+.kriek-colour {
+    background: #630d21;
+}
+
+.pale-ale-colour {
+    background: #fab120;
+}
+
+.porter-colour {
+    background: #3e0000;
+}
+
+.blog-image {
+    width: 20%;
+    height: 30%;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 20%;
+    padding: 2%;
+}
